@@ -194,9 +194,12 @@
                         <label class="form-label-outside">Dari</label>
                         <div class="form-wrap form-wrap-inline">
                           <select class="form-input select-filter" data-placeholder="All" data-minimum-results-for-search="Infinity" name="dari">
-                            <option value="1">New York</option>
-                            <option value="2">Lisbon</option>
-                            <option value="3">Stockholm</option>
+                            <?php
+                              include_once('koneksi.php');
+                              $sql = mysqli_query($koneksi, "SELECT id_bandara, nama FROM bandara ORDER BY id_bandara ASC");
+                              while ($item = mysqli_fetch_array($sql)) { ?>
+                              <option value="<?= $item['id_bandara'];?>"><?php echo $item['kota'];?></option>
+                            <?php } ?>
                           </select>
                         </div>
                       </div>
@@ -204,9 +207,12 @@
                         <label class="form-label-outside">Ke</label>
                         <div class="form-wrap form-wrap-inline">
                           <select class="form-input select-filter" data-placeholder="All" data-minimum-results-for-search="Infinity" name="ke">
-                            <option value="1">Chicago</option>
-                            <option value="2">Madrid</option>
-                            <option value="3">Paris</option>
+                            <?php
+                              include_once('koneksi.php');
+                              $sql = mysqli_query($koneksi, "SELECT id_penerbangan, nama FROM penerbangan ORDER BY id_penerbangan ASC");
+                              while ($item = mysqli_fetch_array($sql)) { ?>
+                              <option value="<?= $item['id_penerbangan'];?>"><?php echo $item['bandara_tujuan'];?></option>
+                            <?php } ?>
                           </select>
                         </div>
                       </div>
@@ -215,7 +221,7 @@
                         <div class="form-wrap form-wrap-validation">
                           <!-- Select -->
                           <input class="form-input" id="dateForm" name="tanggal" type="text" data-time-picker="date">
-                          <label class="form-label" for="dateForm">Choose the date</label>
+                          <label class="form-label" for="dateForm">Pilih Tanggal</label>
                           <!--select.form-input.select-filter(data-placeholder="All", data-minimum-results-for-search="Infinity",  name='city')-->
                           <!--  option(value="1") Choose the date-->
                           <!--  option(value="2") Primary-->
@@ -259,7 +265,7 @@
                       </div>
                     </div>
                     <div class="form-wrap form-button">
-                      <button class="button button-block button-secondary" type="submit" name="submit">search flight</button>
+                      <button class="button button-block button-secondary" type="submit" name="submit">Pesan Penerbangan</button>
                     </div>
                   </form>
                 </div>
