@@ -129,68 +129,54 @@
     <div class="container">
       <h1 style="margin:10px;">PAYMENT</h1>
       <form class="" action="index.html" method="get">
-      <table id="dataTables">
-        <thead class="thead-dark">
-          <tr>
-            <th>From</th>
-            <th>To</th>
-            <th>Depart date</th>
-            <th>Duration</th>
-            <th>Adults</th>
-            <th>Children</th>
-            <th>Flight Class</th>
-          </tr>
-        </thead>
-        <tbody>
-          <?php
-          include_once('koneksi.php');
-          $sql = mysqli_query($koneksi, "SELECT * FROM penerbangan");
-          foreach ($sql as $row) {
-          ?>
-          <tr>
-            <td><?= $row[""]; ?></td>
-            <td><?= $row[""]; ?></td>
-            <td><?= $row[""]; ?></td>
-            <td><?= $row[""]; ?></td>
-            <td><?= $row[""]; ?></td>
-            <td><?= $row[""]; ?></td>
-            <td><?= $row[""]; ?></td>
-            <td>
-              <button class="btn btn-primary" role="button" id="btn-info">Info</button>
-              <a href="delete.php?id=<?= $row["id_tma"] ?>"><button class="btn btn-danger" role="button" id="btn-delete"  onclick="return confirm('Apakah Anda yakin ingin menghapus data dengan ID = ' + <?= $row['id_tma'] ?> + ' ?')">Hapus</button></a>
-            </td>
-          </tr>
-          <?php } ?>
-        <tbody>
-      </table>
-
-        <div style="overflow-x:auto;">
-          <label>Pilih Metode Pembayaran</label>
-          <table border=0 cellpadding="10">
-            <tr>
-              <th><input type="checkbox"  value=""><img src="img/bni.png" width="60px" height="20px"></th>
-              <th><input type="checkbox"  value=""><img src="img/logo-bca.png" width="60px" height="20px"></th>
-              <th><input type="checkbox"  value=""><img src="img/bri.png" width="60px" height="25px"></th>
-              <th><input type="checkbox"  value=""><img src="img/bjb.png" width="60px" height="30px"></th>
-              <th><input type="checkbox"  value=""><img src="img/bankdki.png" width="60px" height="25px"></th>
-              <th><input type="checkbox"  value=""><img src="img/bankbb.png" width="60px" height="20px"></th>
-            </tr>
-            <tr>
-              <th><input type="checkbox"  value=""><img src="img/visa.png" width="60px" height="30px"></th>
-              <th><input type="checkbox"  value=""><img src="img/masterc.png" width="60px" height="30px"></th>
-              <th><input type="checkbox"  value=""><img src="img/paypal.png" width="60px" height="20px"></th>
-              <th><input type="checkbox"  value=""><img src="img/alfa.jpg" width="70px" height="50px"></th>
-              <th><input type="checkbox"  value=""><img src="img/indomaret.png" width="60px" height="20px"></th>
-              <th><input type="checkbox"  value=""><img src="img/gopay.jpg" width="65px" height="40px"></th>
-            </tr>
-          </table>
+        <div class="card grey lighten-4">
+          <div class="title-card grey lighten-4"><h3>Data Pemesan</h3></div>
+            <div class="card-content white">
+              <div class="row">
+                <div class="input-field col m3">
+                  <label>Nama Lengkap</label>
+                  <br>
+                  <input type="text" name="namaPembeli">
+                </div>
+                <div class="input-field col m3">
+                  <label>No. Handphone</label>
+                  <br>
+                  <input type="text" name="noHp">
+                </div>
+                <div class="input-field col m3">
+                  <label>Email</label>
+                  <br>
+                  <input type="text" name="emailPembeli">
+                </div>
+              </div> 
+              <br>
+              <div style="overflow-x:auto;">
+                <h3>Pilih Metode Pembayaran</h3>
+                <table border=0 cellpadding="10">
+                  <tr>
+                    <th><input type="checkbox"  value=""><img src="img/bni.png" width="60px" height="20px"></th>
+                    <th><input type="checkbox"  value=""><img src="img/logo-bca.png" width="60px" height="20px"></th>
+                    <th><input type="checkbox"  value=""><img src="img/bri.png" width="60px" height="25px"></th>
+                    <th><input type="checkbox"  value=""><img src="img/bjb.png" width="60px" height="30px"></th>
+                    <th><input type="checkbox"  value=""><img src="img/bankdki.png" width="60px" height="25px"></th>
+                    <th><input type="checkbox"  value=""><img src="img/bankbb.png" width="60px" height="20px"></th>
+                  </tr>
+                  <tr>
+                    <th><input type="checkbox"  value=""><img src="img/visa.png" width="60px" height="30px"></th>
+                    <th><input type="checkbox"  value=""><img src="img/masterc.png" width="60px" height="30px"></th>
+                    <th><input type="checkbox"  value=""><img src="img/paypal.png" width="60px" height="20px"></th>
+                    <th><input type="checkbox"  value=""><img src="img/alfa.jpg" width="70px" height="50px"></th>
+                    <th><input type="checkbox"  value=""><img src="img/indomaret.png" width="60px" height="20px"></th>
+                    <th><input type="checkbox"  value=""><img src="img/gopay.jpg" width="65px" height="40px"></th>
+                  </tr>
+                </table>
+              </div>
+              <a href="dashboarduser.php"><button name="bayar" class="button button-block button-secondary btn-form-change" role="button" id="submit" onclick="return confirm('Anda berhasil melakukan pembayaran, PIN Anda = 1957')">Bayar</button></a>
+              <a href="index.html"><button name="batal" class="button button-block button-secondary btn-form-change" role="button" id="batal" onclick="return confirm('Anda yakin ingin membatalkan transaksi?')">Batal</button></a> 
+            </div>
+          </div>
         </div>
-      <a href="#"><button class="button button-block button-secondary">Pay</button></a>
-    </form>
-    <br>
-    <a href="index.html"><button class="button button-block button-secondary btn-form-change">Batal</button></a> 
-    <br>
-    <br>
+      </form>
   </div>
       <!-- Footer Minimal-->
       <footer class="section page-footer page-footer-minimal novi-background bg-cover text-center bg-gray-darker">
@@ -215,6 +201,7 @@
     </div>
     <!-- Global Mailform Output-->
     <div class="snackbars" id="form-output-global"> </div>
+
     <!-- Javascript-->
     <script src="js/core.min.js"></script>
     <script src="js/script.js"></script>
