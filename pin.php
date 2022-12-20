@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html class="wide wow-animation" lang="en"> 
   <head>
-    <!-- Site Title-->
-    <title>Hasil Pencarian</title>
+    <!-- Site Title -->
+    <title>Masukkan PIN</title>
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -70,7 +70,7 @@
         </div>
       </div>
     </div>
-    <!-- Page-->
+      <!-- Page-->
       <!-- Page Header-->
       <header class="section page-header">
         <!-- RD Navbar-->
@@ -104,7 +104,7 @@
                 <!-- RD Navbar Toggle-->
                 <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
                 <!-- RD Navbar Brand-->
-                <div class="rd-navbar-brand"><a class="brand-name" href="index.html"><img class="logo-default" src="images/logo-default-208x46.png" alt="" width="208" height="46"/><img class="logo-inverse" src="images/logo-inverse-208x46.png" alt="" width="208" height="46"/></a></div>
+                <div class="rd-navbar-brand"><a class="brand-name" href="index.html"><img class="logo-default" src="images/logo/Traveloke.png" alt="" width="208" height="46"/><img class="logo-inverse" src="images/logo-inverse-208x46.png" alt="" width="208" height="46"/></a></div>
               </div>
               <div class="rd-navbar-aside-center">
                 <div class="rd-navbar-nav-wrap">
@@ -121,72 +121,31 @@
                   </ul>
                 </div>
               </div>
-              <div class="rd-navbar-aside-right"><a class="button button-sm button-secondary button-nina" href="#">Book a tour now</a></div>
             </div>
           </nav>
         </div>
       </header>
-      <main>
-        <div class="page-content">
-        <div class="container">
-          <div class="row">
-            <div class="col m4">
-              <?php $this->load->view('user/nav') ?>
-            </div>
-            <div class="col m8">
-              <div class="card grey lighten-4">
-                <div class="title-card grey lighten-4">Pembelian</div>
-                <div class="card-content white"> 
-                  <div class="row">
-                    <table class="bordered responsive-table striped">
-                      <thead>
-                        <tr>
-                          <th>No Order</th>
-                          <th>Waktu</th>
-                          <th>Status</th>
-                          <th></th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <?php if(empty($list)){
-                          ?>
-                          <tr>
-                            <td colspan="4">
-                              <center>
-                                <i style="font-size: 50px" class="material-icons">shoppinh_cart</i><br>
-                                <h5 class="light">Anda belum melakukan pembelian</h5>
-                              </center>
-                            </td>
-                          </tr>
-                          <?php
-                        }else{ ?>
-                        <?php foreach($list as $l){
-                          if($l->status=='Terbayar'){
-                            $color = "green";
-                          }elseif($l->status=='Tertunda'){
-                            $color = "orange";
-                          }elseif($l->status=='Batal'){
-                            $color = "red";
-                          }
-                          ?>
-                          <tr>
-                            <td><?=$l->id_order?></td>
-                            <td><?=tgl_indo($l->order_date)?> , <?=stime($l->order_time)?></td>
-                            <td><span class="label-flat <?=$color?>"><?=$l->status?></span></td>
-                            <td><a href="<?=site_url('user/order_detail/'.$l->id_order.'')?>" class="btn waves-effect waves-light">Detail</a></td>
-                          </tr>
-                          <?php } 
-                        } ?>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+
+      <br>
+      <br>
+      <center>
+        <div class="col-lg-6">
+          <h5>Masukkan PIN yang Anda dapatkan setelah pembayaran!</h5>
         </div>
-      </div>
-      </main>
+        <br>
+        <div class="col-lg-2">
+          <div class="form-wrap form-wrap-modern">
+            <input name="pin" class="form-input">
+          </div>
+        </div>  
+        <br>
+        <div class="col-lg-3">
+          <button name="submit" class="button button-block button-secondary btn-form-change btn-success" type="submit">Submit</button>
+        </div> 
+      </center>
+      <br>
+      <br>
+      
       <footer class="section page-footer page-footer-minimal novi-background bg-cover text-center bg-gray-darker">
         <div class="container container-wide">
           <div class="row row-fix justify-content-sm-center align-items-md-center row-30">
@@ -209,6 +168,18 @@
     </div>
     <!-- Global Mailform Output-->
     <div class="snackbars" id="form-output-global"> </div>
+
+    <?php 
+      if(isset($_POST['submit'])){
+        if ($_POST['pin'] == '1957') {
+          confirm('PIN Anda Benar, Lanjut Ke Dashboard!');
+          header("Location: dashboarduser.php");
+        } else {
+          confirm('PIN Anda Salah, Silahkan Mengulangi!');
+        }
+      }
+    ?>
+
     <!-- Javascript-->
     <script src="js/core.min.js"></script>
     <script src="js/script.js"></script>

@@ -104,7 +104,7 @@
                 <!-- RD Navbar Toggle-->
                 <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
                 <!-- RD Navbar Brand-->
-                <div class="rd-navbar-brand"><a class="brand-name" href="index.html"><img class="logo-default" src="images/logo-default-208x46.png" alt="" width="208" height="46"/><img class="logo-inverse" src="images/logo-inverse-208x46.png" alt="" width="208" height="46"/></a></div>
+                <div class="rd-navbar-brand"><a class="brand-name" href="index.html"><img class="logo-default" src="images/logo/Traveloke.png" alt="" width="208" height="46"/><img class="logo-inverse" src="images/logo-inverse-208x46.png" alt="" width="208" height="46"/></a></div>
               </div>
               <div class="rd-navbar-aside-center">
                 <div class="rd-navbar-nav-wrap">
@@ -121,7 +121,6 @@
                   </ul>
                 </div>
               </div>
-              <div class="rd-navbar-aside-right"><a class="button button-sm button-secondary button-nina" href="#">Book a tour now</a></div>
             </div>
           </nav>
         </div>
@@ -162,7 +161,7 @@
                   <div class="container container-bigger swiper-main-section">
                     <div class="row row-fix justify-content-sm-center justify-content-md-start">
                       <div class="col-md-6 col-lg-5 col-xl-4 col-xxl-5">
-                        <h3 style="color:black">WAWASAN PERJALANAN UNIK</h3>
+                        <h3>Unique Travel Insights</h3>
                         <div class="divider divider-decorate"></div>
                         <p class="text-spacing-sm" style="color:black">Tim kami siap memberi Anda wawasan perjalanan mingguan unik yang mencakup foto, video, dan artikel tentang jalur wisata yang belum dilalui. Kami tahu segalanya tentang tempat yang belum pernah Anda kunjungi!</p><a class="button button-default-outline button-nina button-sm" href="#">learn more</a>
                       </div>
@@ -186,36 +185,42 @@
             <div class="row row-fix justify-content-sm-center justify-content-lg-end">
               <div class="col-lg-6 col-xxl-5">
                 <div class="form-request form-request-modern bg-gray-lighter novi-background">
-                  <h4>Find your Tour</h4>
+                  <h4>Cari Tiket Anda</h4>
                   <!-- RD Mailform-->
                   <form class="rd-mailform form-fix">
                     <div class="row row-20 row-fix">
                       <div class="col-sm-12">
-                        <label class="form-label-outside">From</label>
+                        <label class="form-label-outside">Dari</label>
                         <div class="form-wrap form-wrap-inline">
-                          <select class="form-input select-filter" data-placeholder="All" data-minimum-results-for-search="Infinity" name="city">
-                            <option value="1">New York</option>
-                            <option value="2">Lisbon</option>
-                            <option value="3">Stockholm</option>
+                          <select class="form-input select-filter" data-placeholder="All" data-minimum-results-for-search="Infinity" name="dari">
+                            <?php
+                              include_once('koneksi.php');
+                              $sql = mysqli_query($koneksi, "SELECT id_bandara, nama FROM bandara ORDER BY id_bandara ASC");
+                              while ($item = mysqli_fetch_array($sql)) { ?>
+                              <option value="<?= $item['id_bandara'];?>"><?php echo $item['nama'];?></option>
+                            <?php } ?>
                           </select>
                         </div>
                       </div>
                       <div class="col-sm-12">
-                        <label class="form-label-outside">To</label>
+                        <label class="form-label-outside">Ke</label>
                         <div class="form-wrap form-wrap-inline">
-                          <select class="form-input select-filter" data-placeholder="All" data-minimum-results-for-search="Infinity" name="city">
-                            <option value="1">Chicago</option>
-                            <option value="2">Madrid</option>
-                            <option value="3">Paris</option>
+                          <select class="form-input select-filter" data-placeholder="All" data-minimum-results-for-search="Infinity" name="ke">
+                            <?php
+                              include_once('koneksi.php');
+                              $sql = mysqli_query($koneksi, "SELECT id_bandara, nama FROM bandara ORDER BY id_bandara ASC");
+                              while ($item = mysqli_fetch_array($sql)) { ?>
+                              <option value="<?= $item['id_bandara'];?>"><?php echo $item['nama'];?></option>
+                            <?php } ?>
                           </select>
                         </div>
                       </div>
                       <div class="col-sm-12 col-lg-6">
-                        <label class="form-label-outside">Depart Date</label>
+                        <label class="form-label-outside">Tanggal Penerbangan</label>
                         <div class="form-wrap form-wrap-validation">
                           <!-- Select -->
-                          <input class="form-input" id="dateForm" name="date" type="text" data-time-picker="date">
-                          <label class="form-label" for="dateForm">Choose the date</label>
+                          <input class="form-input" id="dateForm" name="tanggal" type="text" data-time-picker="date">
+                          <label class="form-label" for="dateForm">Pilih Tanggal</label>
                           <!--select.form-input.select-filter(data-placeholder="All", data-minimum-results-for-search="Infinity",  name='city')-->
                           <!--  option(value="1") Choose the date-->
                           <!--  option(value="2") Primary-->
@@ -223,43 +228,43 @@
                         </div>
                       </div>
                       <div class="col-sm-12 col-lg-6">
-                        <label class="form-label-outside">Duration</label>
+                        <label class="form-label-outside">Durasi</label>
                         <div class="form-wrap form-wrap-validation">
                           <!-- Select 2-->
-                          <select class="form-input select-filter" data-placeholder="All" data-minimum-results-for-search="Infinity" name="city">
-                            <option value="1">Any length</option>
-                            <option value="2">2 days</option>
-                            <option value="3">3 days</option>
-                            <option value="4">4 days</option>
+                          <select class="form-input select-filter" data-placeholder="All" data-minimum-results-for-search="Infinity" name="durasi">
+                            <option value="1">1 hari</option>
+                            <option value="2">2 hari</option>
+                            <option value="3">3 hari</option>
+                            <option value="4">4 hari</option>
                           </select>
                         </div>
                       </div>
                       <div class="col-lg-6">
-                        <label class="form-label-outside">Adults</label>
+                        <label class="form-label-outside">Dewasa</label>
                         <div class="form-wrap form-wrap-modern">
-                          <input class="form-input input-append" id="form-element-stepper" type="number" min="0" max="300" value="2">
+                          <input name="dewasa" class="form-input input-append" id="form-element-stepper" type="number" min="0" max="300" value="0">
                         </div>
                       </div>
                       <div class="col-lg-6">
-                        <label class="form-label-outside">Children</label>
+                        <label class="form-label-outside">Anak-anak</label>
                         <div class="form-wrap form-wrap-modern">
-                          <input class="form-input input-append" id="form-element-stepper-1" type="number" min="0" max="300" value="0">
+                          <input name="anak" class="form-input input-append" id="form-element-stepper-1" type="number" min="0" max="300" value="0">
                         </div>
                       </div>
                       <div class="col-sm-12">
-                        <label class="form-label-outside">Flight Class</label>
+                        <label class="form-label-outside">Kelas Penerbangan</label>
                         <div class="form-wrap form-wrap-inline">
-                          <select class="form-input select-filter" data-placeholder="All" data-minimum-results-for-search="Infinity" name="city">
-                            <option value="1">Economy</option>
-                            <option value="2">Premium Economy</option>
-                            <option value="3">Business</option>
+                          <select class="form-input select-filter" data-placeholder="All" data-minimum-results-for-search="Infinity" name="kelas">
+                            <option value="1">Ekonomi</option>
+                            <option value="2">Ekonomi Premium</option>
+                            <option value="3">Bisnis</option>
                             <option value="3">First Class</option>
                           </select>
                         </div>
                       </div>
                     </div>
                     <div class="form-wrap form-button">
-                      <button class="button button-block button-secondary" type="submit">search flight</button>
+                      <button class="button button-block button-secondary" type="submit" name="submit">Pesan Penerbangan</button>
                     </div>
                   </form>
                 </div>
@@ -545,6 +550,7 @@
     </div>
     <!-- Global Mailform Output-->
     <div class="snackbars" id="form-output-global"> </div>
+
     <!-- Javascript-->
     <script src="js/core.min.js"></script>
     <script src="js/script.js"></script>
