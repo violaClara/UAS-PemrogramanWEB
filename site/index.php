@@ -104,7 +104,7 @@
                 <!-- RD Navbar Toggle-->
                 <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
                 <!-- RD Navbar Brand-->
-                <div class="rd-navbar-brand"><a class="brand-name" href="index.html"><img class="logo-default" src="images/logo-default-208x46.png" alt="" width="208" height="46"/><img class="logo-inverse" src="images/logo-inverse-208x46.png" alt="" width="208" height="46"/></a></div>
+                <div class="rd-navbar-brand"><a class="brand-name" href="index.html"><img class="logo-default" src="images/logo/Traveloke.png" alt="" width="208" height="46"/><img class="logo-inverse" src="images/logo-inverse-208x46.png" alt="" width="208" height="46"/></a></div>
               </div>
               <div class="rd-navbar-aside-center">
                 <div class="rd-navbar-nav-wrap">
@@ -121,7 +121,6 @@
                   </ul>
                 </div>
               </div>
-              <div class="rd-navbar-aside-right"><a class="button button-sm button-secondary button-nina" href="#">Book a tour now</a></div>
             </div>
           </nav>
         </div>
@@ -162,7 +161,7 @@
                   <div class="container container-bigger swiper-main-section">
                     <div class="row row-fix justify-content-sm-center justify-content-md-start">
                       <div class="col-md-6 col-lg-5 col-xl-4 col-xxl-5">
-                        <h3>unique Travel Insights</h3>
+                        <h3>Unique Travel Insights</h3>
                         <div class="divider divider-decorate"></div>
                         <p class="text-spacing-sm">Our team is ready to provide you with unique weekly travel insights that include photos, videos, and articles about untravelled tourist paths. We know everything about the places you’ve never been to!</p><a class="button button-default-outline button-nina button-sm" href="#">learn more</a>
                       </div>
@@ -198,7 +197,7 @@
                               include_once('koneksi.php');
                               $sql = mysqli_query($koneksi, "SELECT id_bandara, nama FROM bandara ORDER BY id_bandara ASC");
                               while ($item = mysqli_fetch_array($sql)) { ?>
-                              <option value="<?= $item['id_bandara'];?>"><?php echo $item['kota'];?></option>
+                              <option value="<?= $item['id_bandara'];?>"><?php echo $item['nama'];?></option>
                             <?php } ?>
                           </select>
                         </div>
@@ -209,9 +208,9 @@
                           <select class="form-input select-filter" data-placeholder="All" data-minimum-results-for-search="Infinity" name="ke">
                             <?php
                               include_once('koneksi.php');
-                              $sql = mysqli_query($koneksi, "SELECT id_penerbangan, nama FROM penerbangan ORDER BY id_penerbangan ASC");
+                              $sql = mysqli_query($koneksi, "SELECT id_bandara, nama FROM bandara ORDER BY id_bandara ASC");
                               while ($item = mysqli_fetch_array($sql)) { ?>
-                              <option value="<?= $item['id_penerbangan'];?>"><?php echo $item['bandara_tujuan'];?></option>
+                              <option value="<?= $item['id_bandara'];?>"><?php echo $item['nama'];?></option>
                             <?php } ?>
                           </select>
                         </div>
@@ -243,7 +242,7 @@
                       <div class="col-lg-6">
                         <label class="form-label-outside">Dewasa</label>
                         <div class="form-wrap form-wrap-modern">
-                          <input name="dewasa" class="form-input input-append" id="form-element-stepper" type="number" min="0" max="300" value="2">
+                          <input name="dewasa" class="form-input input-append" id="form-element-stepper" type="number" min="0" max="300" value="0">
                         </div>
                       </div>
                       <div class="col-lg-6">
@@ -253,7 +252,7 @@
                         </div>
                       </div>
                       <div class="col-sm-12">
-                        <label class="form-label-outside">Flight Class</label>
+                        <label class="form-label-outside">Kelas Penerbangan</label>
                         <div class="form-wrap form-wrap-inline">
                           <select class="form-input select-filter" data-placeholder="All" data-minimum-results-for-search="Infinity" name="kelas">
                             <option value="1">Ekonomi</option>
@@ -577,25 +576,6 @@
     </div>
     <!-- Global Mailform Output-->
     <div class="snackbars" id="form-output-global"> </div>
-   
-    <?php
-    if(isset($_POST['submit'])){
-        $dari = $_POST['dari'];
-        $ke = $_POST['ke'];
-        $tanggal = $_POST['tanggal'];
-        $durasi = $_POST['durasi'];
-        $dewasa = $_POST['dewasa'];
-        $anak = $_POST['anak'];
-        $kelas = $_POST['kelas'];
-
-        include_once("koneksi.php");
-        $result = mysqli_query($koneksi, "INSERT INTO (dari,ke,tanggal,durasi,dewasa,anak,kelas) VALUES ('$dari','$ke','$tanggal','$durasi','$dewasa','$anak','$kelas')");
-
-        if($result){
-            echo "Penerbangan berhasil ditambahkan! <a href='payment.php'>Ke Pembayaran</a>";
-        }
-    }
-    ?>
 
     <!-- Javascript-->
     <script src="js/core.min.js"></script>
