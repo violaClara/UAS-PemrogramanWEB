@@ -120,7 +120,7 @@
         
 
       
-        <p style="color:white;"> Atau <a href="login_admin.php" style="color: yellow;">Login sebagai Admin</a></p>
+        <p style="color:white;"> Atau <a href="login_admin.php" style="color: blue;">Login sebagai Admin</a></p>
     </center>
     </div>
 
