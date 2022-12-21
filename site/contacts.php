@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/logo/traveloke1.png" type="image/x-icon">
     <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Oswald:200,400%7CLato:300,400,300italic,700%7CMontserrat:900">
     <link rel="stylesheet" href="css/bootstrap.css">
@@ -20,56 +20,6 @@
   </head>
   <body>
     <!-- Page preloader-->
-    <div class="page-loader"> 
-      <div class="page-loader-body"> 
-        <div class="preloader-wrapper big active"> 
-          <div class="spinner-layer spinner-blue"> 
-            <div class="circle-clipper left">
-              <div class="circle"> </div>
-            </div>
-            <div class="gap-patch">
-              <div class="circle"> </div>
-            </div>
-            <div class="circle-clipper right">
-              <div class="circle"></div>
-            </div>
-          </div>
-          <div class="spinner-layer spinner-red">
-            <div class="circle-clipper left">
-              <div class="circle"></div>
-            </div>
-            <div class="gap-patch">
-              <div class="circle"> </div>
-            </div>
-            <div class="circle-clipper right">
-              <div class="circle"></div>
-            </div>
-          </div>
-          <div class="spinner-layer spinner-blue"> 
-            <div class="circle-clipper left">
-              <div class="circle"></div>
-            </div>
-            <div class="gap-patch">
-              <div class="circle"></div>
-            </div>
-            <div class="circle-clipper right">
-              <div class="circle"> </div>
-            </div>
-          </div>
-          <div class="spinner-layer spinner-green"> 
-            <div class="circle-clipper left">
-              <div class="circle"></div>
-            </div>
-            <div class="gap-patch">
-              <div class="circle"></div>
-            </div>
-            <div class="circle-clipper right">
-              <div class="circle"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
     <!-- Page-->
           <!-- Page Header-->
       <header class="section page-header breadcrumbs-custom-wrap bg-gradient bg-secondary-2 novi-background bg-cover">
@@ -82,7 +32,7 @@
                 <!-- RD Navbar Toggle-->
                 <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
                 <!-- RD Navbar Brand-->
-                <div class="rd-navbar-brand"><a class="brand-name" href="index.html"><img class="logo-default" src="images/logo/traveloke.png" alt="" width="208" height="46"/><img class="logo-inverse" src="images/logo/traveloke.png" alt="" width="208" height="46"/></a></div>
+                <div class="rd-navbar-brand"><a class="brand-name" href="index.php"><img class="logo-default" src="images/logo/traveloke.png" alt="" width="208" height="46"/><img class="logo-inverse" src="images/logo/traveloke.png" alt="" width="208" height="46"/></a></div>
               </div>
               <div class="rd-navbar-aside-center">
                 <div class="rd-navbar-nav-wrap">
@@ -177,7 +127,7 @@
                   <hr class="divider divider-left divider-secondary">
                   <p class="big">Anda dapat menghubungi kami dengan cara apa pun yang nyaman bagi Anda. Kami tersedia 24/7 melalui faks atau email. Anda juga dapat menggunakan formulir kontak cepat di bawah ini atau mengunjungi kantor kami secara langsung.</p>
                   <!-- RD Mailform-->
-                  <form class="rd-mailform" data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php">
+                  <form action="mailto:bagasriyan9@gmail.com" method="post" enctype="text/plain">
                     <div class="row row-fix row-20">
                       <div class="col-md-6">
                         <div class="form-wrap form-wrap-validation">
