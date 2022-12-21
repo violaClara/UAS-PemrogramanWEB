@@ -96,7 +96,6 @@
 	<title>Dasboard</title>
 </head>
 <body>
-	<?= include "header.php"; ?>
 
 	<main>
 		<div class="container mt-3">
@@ -105,6 +104,9 @@
 					<div class="card">
 						<div class="card-body">
 							<h5 class="card-tittle">Akun User</h5>
+							<form method="post" action="login.php" style="position:relative">
+								<input type="submit" style="position:absolute; right:0;" class="button btn btn-primary mt-3" name="submitLogout" value="Logout" href="index.php"/>
+							</form>
 							<hr>
 							<table style="margin-left: 5%;" >
 								<tr>
@@ -147,7 +149,7 @@
 
 
 							
-							<table 
+							<table class="border p-5"
 							<?php 
 							if($tampil->num_rows == 0){
 								 echo 'style="margin-left: 20%; display:none"'; 
@@ -157,11 +159,12 @@
 								?>
 							>
 								<tr>
-									<td style="width: 35%;"><?= $_SESSION['nama'] ?></td>
+									<td style="width: 35%;"><p class="h3">TIKET</p><p class=""><?= $_SESSION['nama'] ?></p></td>
 									<td style="width: 15%;"></td>
 									<td style="width: 15%;"></td>
-									<td style="width: 15%; padding-bottom: 5%;"><?= $_SESSION['tambahan_bagasi'] ?></td>
-									<td style="width: 15%; padding-bottom: 5%;"><?= $_SESSION['kursi'] ?></td>
+									<td style="width: 25%;"></td>
+					
+									<td style="width: 15%; padding-bottom: 5%;" class="h1 bolder"><center><?= $_SESSION['kursi'] ?></center></td>
 								</tr>
 								<tr>
 									<td><?= $_SESSION['no_ktp'] ?></td>
@@ -171,16 +174,18 @@
 									<td><?= $_SESSION['no_telp'] ?></td>
 								</tr>
 								<tr>
-									<td >Penerbangan Dari <?= $_SESSION['bandara_berangkat'] ?></td>
-									<td>-</td>
-									<td>Ke <?= $_SESSION['bandara_tujuan'] ?></td>
+									<td colspan='4'>Penerbangan Dari <?= $_SESSION['bandara_berangkat'] ?> - Ke <?= $_SESSION['bandara_tujuan'] ?></td>
+									<!-- <td></td>
+									<td></td> -->
 									<td style=" padding-top: 7%;"></td>
 								</tr>
 								<tr>
-									<td><?= $_SESSION['jam_berangkat'] ?></td>
-									<td>-</td>
-									<td><?= $_SESSION['jam_sampai'] ?></td>
+									<td >Hari : <?= $_SESSION['tanggal_berangkat'] ?></td>
+									<td colspan="2">Pukul : <?= $_SESSION['jam_berangkat'] ?> - <?= $_SESSION['jam_sampai'] ?> </td>
 									<td></td>
+								</tr>
+								<tr>
+								<td style="width: 15%; ">Tambahan Bagasi: <?= $_SESSION['tambahan_bagasi'] ?></td>
 								</tr>
 							</table>
 
