@@ -135,12 +135,12 @@
         <br>
         <div class="col-lg-2">
           <div class="form-wrap form-wrap-modern">
-            <input name="pin" class="form-input">
+            <input name="pin" id="pin" class="form-input">
           </div>
         </div>  
         <br>
         <div class="col-lg-3">
-          <button name="submit" class="button button-block button-secondary btn-form-change btn-success" type="submit">Submit</button>
+          <button name="submit" class="button button-block button-secondary btn-form-change btn-success" type="submit" onclick="myFunction()">Submit</button>
         </div> 
       </center>
       <br>
@@ -169,16 +169,21 @@
     <!-- Global Mailform Output-->
     <div class="snackbars" id="form-output-global"> </div>
 
-    <?php 
-      if(isset($_POST['submit'])){
-        if ($_POST['pin'] == '1957') {
-          confirm('PIN Anda Benar, Lanjut Ke Dashboard!');
-          header("Location: dashboarduser.php");
+    <script>
+      function myFunction() {
+        let x = document.getElementById("pin").value;
+        let text;
+        if (x == "1957"){
+          alert("PIN Anda Valid!")
+          location.replace("dashboarduser.php")
         } else {
-          confirm('PIN Anda Salah, Silahkan Mengulangi!');
+          alert("PIN Anda Tidak Valid! Silahkan Ulangi!")
+          exit;
         }
+
+        document.getElementById("pin").innerHTML = text;
       }
-    ?>
+    </script>
 
     <!-- Javascript-->
     <script src="js/core.min.js"></script>
