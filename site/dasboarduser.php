@@ -4,7 +4,6 @@
 	//$username = $_SESSION['username'];
 	$data = "SELECT * FROM users WHERE username='$username'";
 	$eksekusi = mysqli_query($koneksi, $data);
-
 	$hasil = mysqli_fetch_assoc($eksekusi);
 	$_SESSION['id_user'] = $hasil['id_user'];
 	$_SESSION['username'] = $hasil['username'];
@@ -16,17 +15,29 @@
 	$_SESSION['kota'] = $hasil['kota'];
 	$_SESSION['jenis_kelamin'] = $hasil['jenis_kelamin'];
 
-	$tiket = "SELECT * FROM penerbangan WHERE id_user='$id_user'";
+	$tiket = "SELECT * FROM penumpang WHERE id_user='$id_user'";
 	$tampil = mysqli_query($koneksi, $tiket);
-	$_SESSION['nama'] = $hasil['no_ktp'];
-	$_SESSION['jam_berangkat'] = $hasil['jam_berangkat'];
+	$_SESSION['nama'] = $hasil['nama'];
 	$_SESSION['no_ktp'] = $hasil['no_ktp'];
 	$_SESSION['jenis_penumpang'] = $hasil['jenis_penumpang'];
 	$_SESSION['jenis_kelamin'] = $hasil['jenis_kelamin'];
 	$_SESSION['email'] = $hasil['email'];
 	$_SESSION['no_telp'] = $hasil['no_telp'];
-	$_SESSION['provinsi_asal'] = $hasil['provinsi_asal'];
-	$_SESSION['provinsi_tujuan'] = $hasil['provinsi_tujuan'];
+	$_SESSION['provinsi_tujuan'] = $hasil['provinsi'];
+	$_SESSION['tambahan_bagasi'] = $hasil['tambahan_bagasi'];
+	$_SESSION['kursi'] = $hasil['kursi'];
+	$_SESSION['id_penerbangan'] = $hasil['id_penerbangan'];
+
+	$terbang = "SELECT * FROM penerbangan WHERE id_penerbangan = $id_penerbangan";
+	$tampilan = mysqli_query($koneksi, $terbang);
+	$_SESSION['tanggal_berangkat'] = $hasil['tanggal_berangkat'];
+	$_SESSION['jam_berangkat'] = $hasil['jam_berangkat'];
+	$_SESSION['tanggal_sampai'] = $hasil['tanggal_sampai'];
+	$_SESSION['jam_sampai'] = $hasil['jam_sampai'];
+	$_SESSION['bandara_berangkat'] = $hasil['bandara_berangkat'];
+	$_SESSION['bandara_tujuan'] = $hasil['bandara_tujuan'];
+	$_SESSION['tipe'] = $hasil['tipe'];
+	$_SESSION['provinsi'] = $hasil['provinsi'];
 	$_SESSION['tambahan_bagasi'] = $hasil['tambahan_bagasi'];
 	$_SESSION['kursi'] = $hasil['kursi'];
 
@@ -52,10 +63,10 @@
 						<div class="card-body">
 							<h5 class="card-tittle">Akun User</h5>
 							<hr>
-							<table style="margin-left: 5%;" width="40%">
+							<table style="margin-left: 5%;" width="15%">
 								<tr>
 									<td>Username</td>
-									<td style="width: 10%;">:</td>
+									<td style="width: 1%;">:</td>
 									<td><?= $_SESSION['username'] ?></td>
 								</tr>
 								<tr>
@@ -76,16 +87,6 @@
 								<tr>
 									<td>Alamat</td>
 									<td>:</td>
-									<td><?= $_SESSION['negara'] ?></td>
-								</tr>
-								<tr>
-									<td></td>
-									<td></td>
-									<td><?= $_SESSION['provinsi'] ?></td>
-								</tr>
-								<tr>
-									<td></td>
-									<td></td>
 									<td><?= $_SESSION['kota'] ?></td>
 								</tr>
 								<tr>
@@ -94,11 +95,41 @@
 									<td><?= $_SESSION['jenis_kelamin'] ?></td>
 								</tr>
 								<tr>
-									<td>Pesanan Tiket</td>
+									<td>Tiket Pesawat</td>
 									<td>:</td>
 									<td></td>
 								</tr>
 							</table>
+							<hr style="margin-left: 20%;">
+							<table style="margin-left: 20%;">
+								<tr>
+									<td style="width: 35%;"><?= $_SESSION['nama'] ?></td>
+									<td style="width: 15%;"></td>
+									<td style="width: 15%;"></td>
+									<td style="width: 15%; padding-bottom: 5%;"><?= $_SESSION['tambahan_bagasi'] ?></td>
+									<td style="width: 15%; padding-bottom: 5%;"><?= $_SESSION['kursi'] ?></td>
+								</tr>
+								<tr>
+									<td><?= $_SESSION['no_ktp'] ?></td>
+									<td><?= $_SESSION['jenis_kelamin'] ?></td>
+									<td></td>
+									<td><?= $_SESSION['email'] ?></td>
+									<td><?= $_SESSION['no_telp'] ?></td>
+								</tr>
+								<tr>
+									<td >Penerbangan Dari <?= $_SESSION['bandara_berangkat'] ?></td>
+									<td>-</td>
+									<td>Ke <?= $_SESSION['bandara_tujuan'] ?></td>
+									<td style=" padding-top: 7%;"></td>
+								</tr>
+								<tr>
+									<td><?= $_SESSION['jam_berangkat'] ?></td>
+									<td>-</td>
+									<td><?= $_SESSION['jam_sampai'] ?></td>
+									<td></td>
+								</tr>
+							</table>
+							<hr style="margin-left: 20%;">
 						</div>
 					</div>
 				</div>
