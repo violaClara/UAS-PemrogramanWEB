@@ -4,59 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="icon" href="images/logo/traveloke1.png" type="image/x-icon">
+    <title>Traveloke</title>
 </head>
 <body>
        <!-- Page preloader-->
    <div class="page-loader"> 
-      <div class="page-loader-body"> 
-        <div class="preloader-wrapper big active"> 
-          <div class="spinner-layer spinner-blue"> 
-            <div class="circle-clipper left">
-              <div class="circle"> </div>
-            </div>
-            <div class="gap-patch">
-              <div class="circle"> </div>
-            </div>
-            <div class="circle-clipper right">
-              <div class="circle"></div>
-            </div>
-          </div>
-          <div class="spinner-layer spinner-red">
-            <div class="circle-clipper left">
-              <div class="circle"></div>
-            </div>
-            <div class="gap-patch">
-              <div class="circle"> </div>
-            </div>
-            <div class="circle-clipper right">
-              <div class="circle"></div>
-            </div>
-          </div>
-          <div class="spinner-layer spinner-blue"> 
-            <div class="circle-clipper left">
-              <div class="circle"></div>
-            </div>
-            <div class="gap-patch">
-              <div class="circle"></div>
-            </div>
-            <div class="circle-clipper right">
-              <div class="circle"> </div>
-            </div>
-          </div>
-          <div class="spinner-layer spinner-green"> 
-            <div class="circle-clipper left">
-              <div class="circle"></div>
-            </div>
-            <div class="gap-patch">
-              <div class="circle"></div>
-            </div>
-            <div class="circle-clipper right">
-              <div class="circle"></div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
     <!-- Page-->
       <!-- Page Header-->
@@ -71,7 +24,7 @@
                 <!-- RD Navbar Toggle-->
                 <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
                 <!-- RD Navbar Brand-->
-                <div class="rd-navbar-brand"><a class="brand-name" href="index.html"><img class="logo-default" src="images/logo/traveloke.png" alt="" width="208" height="46"/><img class="logo-inverse" src="images/logo/traveloke.png" alt="" width="208" height="46"/></a></div>
+                <div class="rd-navbar-brand"><a class="brand-name" href="index.php"><img class="logo-default" src="images/logo/traveloke.png" alt="" width="208" height="46"/><img class="logo-inverse" src="images/logo/traveloke.png" alt="" width="208" height="46"/></a></div>
               </div>
               <div class="rd-navbar-aside-center">
                 <div class="rd-navbar-nav-wrap">
