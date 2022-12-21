@@ -25,34 +25,35 @@
         include 'header.php';
     ?>
     <div class="container">
-        <form action="" method="POST">
+        <form action="index.php" method="POST">
             <div class="container-fluid container-center" style="padding-top: 10px; align-items: center">
                 <div class="card" style="width: 40rem;">
                     <div class="card-body">
                         <h2 class="card-title text-center">Registrasi User</h2>
                         <br>
                         <div class="mb-3 row">
-                            <label for="username" class="col-sm-3 col-form-label">Nama :</label>
+                            <label for="nama" class="col-sm-3 col-form-label">Nama :</label>
                             <div class="col-sm-8">
-                                <input type="text" name="username" class="form-control" required autofocus>
+                                <input type="text" name="nama" class="form-control" required autofocus>
                             </div>
                         </div>
                         <div class="mb-3 row">
-                            <label for="username" class="col-sm-3 col-form-label">No KTP :</label>
+                            <label for="ktp" class="col-sm-3 col-form-label">No KTP :</label>
                             <div class="col-sm-8">
-                                <input type="text" name="username" class="form-control" required autofocus>
+                                <input type="text" name="ktp" class="form-control" required autofocus>
                             </div>
                         </div>
                         <div class="mb-3 row">
-                            <label for="username" class="col-sm-3 col-form-label">Jenis Penumpang :</label>
+                            <label for="jenisPenumpang" class="col-sm-3 col-form-label">Jenis Penumpang :</label>
                             <div class="col-sm-8">
-                                <input type="text" name="username" class="form-control" required autofocus>
+                                <input type="text" name="jenisPenumpang" class="form-control" required autofocus placeholder="Dewasa/Anak-Anak/Bayi">
                             </div>
                         </div>
                         <div class="mb-3 row">
-                            <label for="username" class="col-sm-3 col-form-label">Jenis Kelamin :</label>
+                            <label for="jenisKelamin" class="col-sm-3 col-form-label">Jenis Kelamin :</label>
                             <div class="col-sm-8">
-                                <input type="text" name="username" class="form-control" required autofocus>
+                                    <input name="jenisKelamin" class="form-control" required autofocus placeholder="Laki-Laki/Perempuan">
+                                </select>
                             </div>
                         </div>
                         <div class="mb-3 row">
@@ -62,51 +63,74 @@
                             </div>
                         </div>
                         <div class="mb-3 row">
-                            <label for="email" class="col-sm-3 col-form-label">No telp :</label>
+                            <label for="tlp" class="col-sm-3 col-form-label">No telp :</label>
                             <div class="col-sm-8">
-                                <input type="text" name="email" class="form-control" required autofocus>
+                                <input type="text" name="tlp" class="form-control" required autofocus>
                             </div>
                         </div>
                         <div class="mb-3 row">
-                            <label for="email" class="col-sm-3 col-form-label">Alamat :</label>
+                            <label for="alamat" class="col-sm-3 col-form-label">Alamat :</label>
                             <div class="col-sm-8">
-                                <input type="text" name="email" class="form-control" required autofocus>
+                                <input type="text" name="alamat" class="form-control" required autofocus>
                             </div>
                         </div>
                         <div class="mb-3 row">
-                            <label for="email" class="col-sm-3 col-form-label">Kota :</label>
+                            <label for="kota" class="col-sm-3 col-form-label">Kota :</label>
                             <div class="col-sm-8">
-                                <input type="text" name="email" class="form-control" required autofocus>
+                                <input type="text" name="kota" class="form-control" required autofocus>
                             </div>
                         </div>
                         <div class="mb-3 row">
-                            <label for="email" class="col-sm-3 col-form-label">Provinsi :</label>
+                            <label for="provinsi" class="col-sm-3 col-form-label">Provinsi :</label>
                             <div class="col-sm-8">
-                                <input type="text" name="email" class="form-control" required autofocus>
+                                <input type="text" name="provinsi" class="form-control" required autofocus>
                             </div>
                         </div>
                         <div class="mb-3 row">
-                            <label for="email" class="col-sm-3 col-form-label">Tambahan Bagasi :</label>
+                            <label for="tambahanBagasi" class="col-sm-3 col-form-label">Tambahan Bagasi :</label>
                             <div class="col-sm-8">
-                                <input type="text" name="email" class="form-control" required autofocus>
+                                <input class="form-control" name="tambahanBagasi" required autofocus placeholder="5 / 10 / 15">
                             </div>
                         </div>
                         <div class="mb-3 row">
-                            <label for="email" class="col-sm-3 col-form-label">Kursi :</label>
+                            <label for="kursi" class="col-sm-3 col-form-label">Kursi :</label>
                             <div class="col-sm-8">
-                                <input type="text" name="email" class="form-control" required autofocus>
+                                <input type="text" name="kursi" class="form-control" required autofocus>
                             </div>
                         </div>   
-</div>
-</div>
-</div>     
+                    </div>
+                    <input type="submit" name="submit" value="Submit"> 
+                </div>
+            </div>     
         </form>
     </div>
+    <br>
     <?php 
     include 'footer.php';
     ?>
 
+    <?php
+    if(isset($_POST['submit'])){
+        $nama = $_POST['nama'];
+        $ktp = $_POST['ktp'];
+        $jenisPenumpang = $_POST['jenisPenumpang'];
+        $jenisKelamin = $_POST['jenisKelamin'];
+        $email = $_POST['email'];
+        $tlp = $_POST['tlp'];
+        $alamat = $_POST['alamat'];
+        $kota = $_POST['kota'];
+        $provinsi = $_POST['provinsi'];
+        $tambahan = $_POST['tambahanBagasi'];
+        $kursi = $_POST['kursi'];
 
+        include_once("koneksi.php");
+        $result = mysqli_query($koneksi, "INSERT INTO penumpang(nama,no_ktp,jenis_penumpang,jenis_kelamin,email,no_telp,alamat,kota,provinsi,tambahan_bagasi,kursi) VALUES ('$nama','$ktp','$jenisPenumpang','$jenisKelamin','$email','$tlp','$alamat','$kota','$provinsi','$tambahan','$kursi')");
+
+        if($result){
+            echo " Data penumpang berhasil ditambahkan! ";
+        }
+    }
+    ?>
     <!-- Global Mailform Output-->
     <div class="snackbars" id="form-output-global"> 
         
