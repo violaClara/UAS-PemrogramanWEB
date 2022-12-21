@@ -1,30 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pemrograman Web | Tugas 13</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
+    <title>Document</title>
+</head>
 <body>
-    <header>
-    <nav class=" navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class=" container-fluid">
-        <div class=" collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav" style="margin-left: 20px;">
-            <li class=" nav-item"><a class=" nav-link" href="index.php"> <img style="width: 100px" src="logo2.png"> </a></li>
-            <li class=" nav-item"><a class=" nav-link" href="index.php">Pesan Tiket</a></li>
-            <li class=" nav-item"><a class=" nav-link" href="kekeruhan.php">Blog</a></li>
-          </ul>
-          <form style="margin-left: 800px;">
-              <button class="btn btn-outline-success" type="submit">Daftar</button>
-              <button class="btn btn-outline-success" type="submit">Login</button>
-          </form>
+       <!-- Page preloader-->
+   <div class="page-loader"> 
+      <div class="page-loader-body"> 
+        <div class="preloader-wrapper big active"> 
+          <div class="spinner-layer spinner-blue"> 
+            <div class="circle-clipper left">
+              <div class="circle"> </div>
+            </div>
+            <div class="gap-patch">
+              <div class="circle"> </div>
+            </div>
+            <div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+          <div class="spinner-layer spinner-red">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+              <div class="circle"> </div>
+            </div>
+            <div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+          <div class="spinner-layer spinner-blue"> 
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+              <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+              <div class="circle"> </div>
+            </div>
+          </div>
+          <div class="spinner-layer spinner-green"> 
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+              <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
         </div>
       </div>
-    </nav>
-  </header>
-<body>
+    </div>
+    <!-- Page-->
+      <!-- Page Header-->
+      <header class="section page-header">
+        <!-- RD Navbar-->
+        <div class="rd-navbar-wrap rd-navbar-corporate">
+          <nav class="rd-navbar" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fixed" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-fullwidth" data-xl-layout="rd-navbar-static" data-lg-device-layout="rd-navbar-fixed" data-xl-device-layout="rd-navbar-static" data-md-stick-up-offset="130px" data-lg-stick-up-offset="100px" data-stick-up="true" data-sm-stick-up="true" data-md-stick-up="true" data-lg-stick-up="true" data-xl-stick-up="true">
+            <div class="rd-navbar-collapse-toggle" data-rd-navbar-toggle=".rd-navbar-collapse"><span></span></div>
+            <div class="rd-navbar-inner">
+              <!-- RD Navbar Panel-->
+              <div class="rd-navbar-panel">
+                <!-- RD Navbar Toggle-->
+                <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
+                <!-- RD Navbar Brand-->
+                <div class="rd-navbar-brand"><a class="brand-name" href="index.html"><img class="logo-default" src="images/logo/traveloke.png" alt="" width="208" height="46"/><img class="logo-inverse" src="images/logo/traveloke.png" alt="" width="208" height="46"/></a></div>
+              </div>
+              <div class="rd-navbar-aside-center">
+                <div class="rd-navbar-nav-wrap">
+                  <!-- RD Navbar Nav-->
+                  <ul class="rd-navbar-nav">
+                    <li class="active"><a href="index.php">Home</a>
+                    </li>
+                    <li><a href="about-us.php">About Us</a>
+                    </li>
+                    <li><a href="contacts.php">Contacts</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+</body>
+</html>
