@@ -161,7 +161,7 @@
                       </div>
                     </div>
                     <div class="form-wrap form-button">
-                      <button class="button button-block button-secondary" type="submit" name="submit">Pesan Penerbangan</button>
+                      <button class="button button-block button-secondary" type="submit" onclick="document.location='jadwal.php'">search flight</button>
                     </div>
                   </form>
                 </div>
