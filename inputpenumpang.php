@@ -3,7 +3,7 @@
 
 <head>
     <!-- Site Title-->
-    <title>Home</title>
+    <title>Data Penumpang</title>
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,13 +24,27 @@
     <?php
         include 'header.php';
     ?>
+    <center>
     <div class="container">
-        <form action="index.php" method="POST">
+        <form action="inputpenumpang.php" method="POST">
             <div class="container-fluid container-center" style="padding-top: 10px; align-items: center">
                 <div class="card" style="width: 40rem;">
                     <div class="card-body">
-                        <h2 class="card-title text-center">Registrasi User</h2>
+                        <h2 class="card-title text-center">Data Penumpang</h2>
                         <br>
+                        <div class="mb-3 row">
+                            <label style="margin: 15px;">Username :</label>
+				                    <select style="margin: 10px 30px 10px 30px;" name="username" class="form-control" required autofocus>
+				                        <?php
+				                            include "koneksi.php";
+				                            $user = mysqli_query($koneksi, "SELECT * FROM users ORDER BY id ASC") or die(mysqli_error($koneksi));
+				                            foreach ($user as $data) {
+				                                echo '
+				                                <option value="'.$data['id'].'">'.$data['username'].'</option>';
+				                            }
+				                        ?>
+				                    </select>
+                        </div>  
                         <div class="mb-3 row">
                             <label for="nama" class="col-sm-3 col-form-label">Nama :</label>
                             <div class="col-sm-8">
@@ -52,7 +66,7 @@
                         <div class="mb-3 row">
                             <label for="jenisKelamin" class="col-sm-3 col-form-label">Jenis Kelamin :</label>
                             <div class="col-sm-8">
-                                    <input name="jenisKelamin" class="form-control" required autofocus placeholder="Laki-Laki/Perempuan">
+                                    <input type="text" name="jenisKelamin" class="form-control" required autofocus placeholder="Laki-Laki/Perempuan">
                                 </select>
                             </div>
                         </div>
@@ -97,18 +111,28 @@
                             <div class="col-sm-8">
                                 <input type="text" name="kursi" class="form-control" required autofocus>
                             </div>
+                        </div> 
+                        <div class="mb-3 row">
+                            <label style="margin: 15px;">ID Penerbangan :</label>
+				                    <select style="margin: 10px 30px 10px 30px;" name="penerbangan" class="form-control" required autofocus>
+				                        <?php
+				                            include "koneksi.php";
+				                            $user = mysqli_query($koneksi, "SELECT * FROM penerbangan ORDER BY id_penerbangan ASC") or die(mysqli_error($koneksi));
+				                            foreach ($user as $data) {
+				                                echo '
+				                                <option value="'.$data['id_penerbangan'].'">'.$data['id_penerbangan'].'</option>';
+				                            }
+				                        ?>
+				                    </select>
                         </div>   
                     </div>
-                    <input type="submit" name="submit" value="Submit"> 
+                    <input style="margin: 30px;" class="button button-secondary" type="submit" name="submit" value="Submit"> 
                 </div>
             </div>     
         </form>
     </div>
+    </center>
     <br>
-    <?php 
-    include 'footer.php';
-    ?>
-
     <?php
     if(isset($_POST['submit'])){
         $nama = $_POST['nama'];
@@ -122,15 +146,21 @@
         $provinsi = $_POST['provinsi'];
         $tambahan = $_POST['tambahanBagasi'];
         $kursi = $_POST['kursi'];
+        $username = $_POST['username'];
+        $idPenerbangan = $_POST['penerbangan'];
 
         include_once("koneksi.php");
-        $result = mysqli_query($koneksi, "INSERT INTO penumpang(nama,no_ktp,jenis_penumpang,jenis_kelamin,email,no_telp,alamat,kota,provinsi,tambahan_bagasi,kursi) VALUES ('$nama','$ktp','$jenisPenumpang','$jenisKelamin','$email','$tlp','$alamat','$kota','$provinsi','$tambahan','$kursi')");
+        $result = mysqli_query($koneksi, "INSERT INTO penumpang(nama,no_ktp,jenis_penumpang,jenis_kelamin,email,no_telp,alamat,kota,provinsi,tambahan_bagasi,kursi,id_penerbangan,id_user) VALUES ('$nama','$ktp','$jenisPenumpang','$jenisKelamin','$email','$tlp','$alamat','$kota','$provinsi','$tambahan','$kursi','$idPenerbangan','$username')");
 
         if($result){
-            echo " Data penumpang berhasil ditambahkan! ";
-        }
+            echo "<center><h2>Data Penumpang Berhasil Ditambahkan!</h2></center>";
     }
+}
     ?>
+    <?php 
+    include 'footer.php';
+    ?>
+
     <!-- Global Mailform Output-->
     <div class="snackbars" id="form-output-global"> 
         
