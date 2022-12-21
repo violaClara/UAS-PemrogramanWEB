@@ -175,7 +175,7 @@
         let text;
         if (x == "1957"){
           alert("PIN Anda Valid!")
-          location.replace("dashboarduser.php")
+          location.replace("index.php")
         } else {
           alert("PIN Anda Tidak Valid! Silahkan Ulangi!")
           exit;
