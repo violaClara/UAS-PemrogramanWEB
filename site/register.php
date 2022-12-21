@@ -5,11 +5,11 @@
 
     
     if(isset($_COOKIE['uname'])){
-        header('Location:dashboard.php');
+        header('Location:dasboarduser.php');
     }
-    // if(isset($_SESSION['user'])){
-    //     header('Location:dashboard.php');
-    // }
+    if(isset($_SESSION['username'])){
+      header('Location:dasboarduser.php');
+  }
     
 ?>
 
@@ -185,9 +185,9 @@ if(isset($_POST['submitReg'])){
 
 $sql="INSERT INTO users (username,password,email,nama,tanggal_lahir,jenis_kelamin) VALUES ('$uname','$pass','$email','$nama','$tanggal','$jenisk');";
     $result= mysqli_query($koneksi,$sql);
-    // $_SESSION['user']=$uname;
-    // $_SESSION['pass']=$pass;
-       header('Location:dashboard.php');
+    $_SESSION['username']=$uname;
+    $_SESSION['pass']=$pass;
+       header('Location:dasboarduser.php');
   
     }
 

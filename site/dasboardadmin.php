@@ -1,7 +1,9 @@
 <?php
+//    session_start();
 	include "koneksi.php";
+	include "db.php";
 
-	//$username = $_SESSION['username'];
+	//$username = $_SESSION['usernameA'];
 	
 
 ?>
@@ -16,6 +18,11 @@
 	<title>Dasboard</title>
 </head>
 <body>
+	<center>
+		<form method="post" action="login_admin.php">
+			<input type="submit" class="button btn btn-primary mt-3" name="submitLogoutA" value="Logout" href="login_admin.php"/>
+		</form>
+	</center>
 	<main style="margin: -10%;">
 			<div class="container mt-3">
 				<div class="row">
@@ -44,6 +51,12 @@
 						</div>
 				</div>
 			</div>
+
+
+
+
 	</main>
+
+	
 </body>
 </html>
