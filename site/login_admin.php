@@ -1,21 +1,22 @@
 <?php 
+    ob_start();
     session_start();
     include "db.php";
 
        
-    // if(isset($_POST['submitLogout'])){
-    //     setcookie("uname",$_POST['usernameL'], time()-1);
-    //     setcookie("pass",md5($_POST['passL']),time()-1);
-    //     session_unset();
-    //     header("Location: index.php");
-    //     header(refresh:0);
-    // }
-    // if(isset($_COOKIE['uname'])){
-    //     header('Location:dashboard.php');
-    // }
-    // if(isset($_SESSION['user'])){
-    //     header('Location:dashboard.php');
-    // }
+    if(isset($_POST['submitLogoutA'])){
+        setcookie("unameA",$_POST['usernameA'], time()-1);
+        setcookie("passA",md5($_POST['passA']),time()-1);
+        session_unset();
+        header("Location: login_admin.php");
+        header(refresh:0);
+    }
+    if(isset($_COOKIE['unameA'])){
+        header('Location:user.php');
+    }
+    if(isset($_SESSION['usernameA'])){
+        header('Location:user.php');
+    }
 
    
    
@@ -116,6 +117,44 @@
 
     </center>
       </div>
+
+      <?php
+        $query=mysqli_query($koneksi, "select * from admin");
+        if (isset($_POST['submitA'])) {
+            $username = $_POST['usernameA'];
+            $password = md5($_POST['passA']);
+            $captha = $_POST['capthaA'];
+           
+
+            if($captha==$_SESSION['captha_pA']){
+                $sql = "SELECT * FROM admin WHERE username='$username' AND password='$password';";
+                $result = mysqli_query($koneksi, $sql);
+                if ($result->num_rows > 0) {
+                    $row = mysqli_fetch_assoc($result);
+                    $_SESSION['usernameA']=$_POST['usernameA'];
+                    $_SESSION['passA']=$_POST['passA'];
+             
+
+                    if(isset($_POST['rememberA'])){
+                        if ($_POST['rememberA']=="yes"){
+                            setcookie("unameA",$_POST['usernameA'], time()+60*60*30);
+                            setcookie("passA",md5($_POST['passA']), time()+60*60*30);
+                        }
+                    }
+                    header("Location: user.php");
+                } else {
+                    echo "<script>alert('Email atau password Anda salah. Silahkan coba lagi!')</script>";
+                }
+            } else{
+                echo "<script>alert('Captha salah. Silahkan coba lagi!')</script>";
+         
+            }
+
+            
+        }
+
+        
+    ?>
   
 
     <!-- Javascript-->

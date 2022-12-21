@@ -1,21 +1,22 @@
 <?php 
+    ob_start(); 
     session_start();
     include "db.php";
 
        
-    // if(isset($_POST['submitLogout'])){
-    //     setcookie("uname",$_POST['usernameL'], time()-1);
-    //     setcookie("pass",md5($_POST['passL']),time()-1);
-    //     session_unset();
-    //     header("Location: index.php");
-    //     header(refresh:0);
-    // }
-    if(isset($_COOKIE['uname'])){
-        header('Location:dashboard.php');
+    if(isset($_POST['submitLogout'])){
+        setcookie("uname",$_POST['usernameL'], time()-1);
+        setcookie("pass",md5($_POST['passL']),time()-1);
+        session_unset();
+        header("Location: login.php");
+        header(refresh:0);
     }
-    // if(isset($_SESSION['user'])){
-    //     header('Location:dashboard.php');
-    // }
+    if(isset($_COOKIE['uname'])){
+        header('Location:dasboarduser.php');
+    }
+    if(isset($_SESSION['username'])){
+        header('Location:dasboarduser.php');
+    }
 
    
    
@@ -120,7 +121,7 @@
         
 
       
-        <p style="color:white;"> Atau <a href="login_admin.php" style="color: blue;">Login sebagai Admin</a></p>
+        <p style="color:white;"> Atau <a href="login_admin.php" style="color: yellow;">Login sebagai Admin</a></p>
     </center>
     </div>
 
@@ -137,7 +138,7 @@
                 $result = mysqli_query($koneksi, $sql);
                 if ($result->num_rows > 0) {
                     $row = mysqli_fetch_assoc($result);
-                    $_SESSION['user']=$_POST['usernameL'];
+                    $_SESSION['username']=$_POST['usernameL'];
                     $_SESSION['pass']=$_POST['passL'];
              
 
@@ -147,7 +148,7 @@
                             setcookie("pass",md5($_POST['passL']), time()+60*60*30);
                         }
                     }
-                    header("Location: dashboard.php");
+                    header("Location: dasboarduser.php");
                 } else {
                     echo "<script>alert('Email atau password Anda salah. Silahkan coba lagi!')</script>";
                 }
