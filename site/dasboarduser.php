@@ -7,21 +7,23 @@
      if(isset($_COOKIE['uname'])){
         $username=$_COOKIE['uname'];
         $password=$_COOKIE['pass'];
-        tampilkanData();
+        tampilkanData($username);
     } else if(isset($_SESSION['username'])){
         $username = $_SESSION['username'];
         $password = $_SESSION['pass'];
-       tampilkanData();
+       tampilkanData($username);
     } else{
         echo "<center><h1>Anda harus login terlebih dahulu</h1></center>";
     }
 
 ?>
 
-<?php function tampilkanData(){
+<?php function tampilkanData($userSet){
 	include "koneksi.php";	
     include "db.php";
-	$username = $_SESSION['username'];
+	$username=$userSet;
+
+
 	$data = "SELECT * FROM users WHERE username='$username'";
 	$eksekusi = mysqli_query($koneksi, $data);
 	$hasil = mysqli_fetch_assoc($eksekusi);

@@ -139,6 +139,10 @@
            <input type="text" name="Lname" class="form-control" placeholder="Last Name" id="lname" required> 
        </div>
        <div class="form-group mb-4 w-75">
+           <label for="Alamat" style="display: -webkit-box;" class="h5">Alamat</label>
+           <input type="text" name="Alamat" class="form-control" placeholder="Alamat" id="alamat" required> 
+       </div>
+       <div class="form-group mb-4 w-75">
            <label for="TanggalLahir" style="display: -webkit-box;" class="h5">Tanggal lahir</label>
            <input type='date' name="TTL" id="calendar" class="form-control datepicker" placeholder="Tanggal Lahir" required>
        </div>
@@ -176,14 +180,14 @@ if(isset($_POST['submitReg'])){
     $email=$_SESSION['email'];
     $nama=$_POST['Fname']." ".$_POST['Lname'];
     $tanggal=$_POST['TTL'];
-    $negara='lighu';
-    $provinsi='lulu';
-    $kota='huhu';
+    $negara='-';
+    $provinsi='-';
+    $kota=$_POST['Alamat'];
     $jenisk=$_POST['jenisK'];
 
 
 
-$sql="INSERT INTO users (username,password,email,nama,tanggal_lahir,jenis_kelamin) VALUES ('$uname','$pass','$email','$nama','$tanggal','$jenisk');";
+$sql="INSERT INTO users (username,password,email,nama,tanggal_lahir,jenis_kelamin,kota) VALUES ('$uname','$pass','$email','$nama','$tanggal','$jenisk','$kota');";
     $result= mysqli_query($koneksi,$sql);
     $_SESSION['username']=$uname;
     $_SESSION['pass']=$pass;
